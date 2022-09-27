@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Page Title</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    a.button {
+      height: 50px;
+      width: 150px;
+      display: block;
+      background-color: red;
+      text-align: center;
+      line-height: 50px;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    li {
+      padding: 5px;
+    }
+
+    ul {
+      list-style: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Files in this directory</h1>
+  <ul>
+    <% @files.each do |file| %>
+      <li><a href="<%= file %>"><%= file %></a></li>
+    <% end %>
+  </ul>
+  <p>
+    <% if params[:sort] == "desc" %>
+      <a class="button" href='/'>Sort Ascending</a>
+    <% else %>
+      <a class="button" href="/?sort=desc">Sort Descending</a>
+    <% end %>
+  </p>
+</body>
+</html>
